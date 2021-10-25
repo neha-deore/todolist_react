@@ -1,0 +1,45 @@
+{
+  "UserData": [
+    {
+      "fname": "neha",
+      "lname": "deore",
+      "uname": "neha",
+      "email": "neha@gmail.com",
+      "password": "",
+      "id": 1
+    },
+    {
+      "fname": "edc",
+      "lname": "ascd",
+      "uname": "wadw",
+      "email": "abc@gmail.com",
+      "password": "",
+      "id": 2
+    },
+    {
+      "fname": "anush",
+      "lname": "hfh",
+      "uname": "anushh",
+      "email": "anush@gmail.com",
+      "password": "Anush@123",
+      "id": 3
+    },
+    {
+      "fname": "felix",
+      "lname": "methew",
+      "uname": "felixm",
+      "email": "felix@gmail.com",
+      "password": "Felix@123",
+      "id": 4
+    },
+    {
+      "fname": "raj",
+      "lname": "kale",
+      "uname": "rajesh",
+      "email": "rajesh@gmail.com",
+      "password": "Rajesh@123",
+      "id": 5
+    }
+    
+  ]
+}
