@@ -9,31 +9,31 @@ const regForEmail=RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
 const regForPass = RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})');
 const isLogin=false
 
+
 //assigning default values
 class Login extends Component {
     constructor(props){
         super(props)
         this.state={
-        uname:"",
         email:"",
         password:"",
-        
-            error:{uname:"",email:"",password:""}
+        error:{email:"",password:""},data:[]
         }
     }
 
-
-
-    //for checking valiadations and handling errors
+    //saving server's data
+    componentDidMount(){
+        axios.get("http://localhost:3001/UserData").then(res=>{
+            this.setState({
+                data:res.data
+            })
+        })
+    }
+//for checking valiadations and handling errors
     handler=(event)=>{
         const {name,value}=event.target
         let error = this.state.error
         switch(name){
-           
-            case 'uname':
-                error.uname=regForName.test(value)?'':'userName should be in aplahbets';
-                break;
-
             case 'email':
                 error.email=regForEmail.test(value)? '':'Email is not valid';
                  break;
@@ -54,11 +54,16 @@ class Login extends Component {
        formSubmit=(event)=>{
         event.preventDefault()
         if(this.validate(this.state.error)){
-            let info = {"uname":this.state.uname,"email":this.state.email,"password":this.state.password}
-            console.log(info)
-            const URL="http://localhost:3001/UserData"
-            axios.post(URL,info).then((response)=>{alert('Login successfully')})
-            window.location.replace("/addtask")
+       
+            if(this.state.email!=="" && this.state.password!==""){
+                let data=this.state.data
+                if(data.some(data=>data.email===this.state.email &&  data.password===this.state.password )){
+                    window.location.replace("/addtask")
+                }else{
+                    alert('login failed')
+                }
+            
+            }
         }
         else{
             alert('Form Rejected')

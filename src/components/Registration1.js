@@ -41,12 +41,12 @@ class Registration1 extends Component {
 
             case 'password':
                 error.password=regForPass.test(value)? '':'password should be in aplhanumeric & special chars';
-                console.log(this.state.password)
+                
                  break;
 
             case 'confirm':
                 error.confirm= this.state.password===value ?'': 'password should not matched';
-                console.log(this.state.confirm)
+                
                 break;
        
             default:
@@ -61,8 +61,11 @@ class Registration1 extends Component {
             let info = {"fname":this.state.fname,"lname":this.state.lname,"uname":this.state.uname,"email":this.state.email,"password":this.state.password}
             console.log(info)
             const URL="http://localhost:3001/UserData"
+            if(this.state.email!=="" && this.state.password!=="" && this.state.fname!=="" 
+            && this.state.lname!=="" && this.state.uname!==""){
             axios.post(URL,info).then((response)=>{alert('Registered successfully')})
             window.location.replace("/")
+            }
         }
         else{
             alert('Form Rejected')
@@ -87,7 +90,7 @@ class Registration1 extends Component {
                 <h2 className="pt-2 pb-3  text-center text-warning">Registration Form</h2>
                 <Row>
                 <Col  lg={8}>
-                <form id="myform"   onSubmit={this.formSubmit} className="bord1 p-4 ml-5">
+                <form id="myform"   className="bord1 p-4 ml-5">
               
                 <Form.Group className="mb-3 ">
                    <Form.Label> First Name:</Form.Label>
@@ -125,7 +128,7 @@ class Registration1 extends Component {
                     <Container id="passwordHelp" className="form-text text-danger">{this.state.error.confirm}</Container>
                 </Form.Group>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button onClick={this.formSubmit} className="btn btn-primary">Submit</button>
                 </form>
                 </Col>
                 </Row>

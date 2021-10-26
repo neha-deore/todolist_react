@@ -1,44 +1,28 @@
 {
   "UserData": [
     {
-      "fname": "neha",
+      "fname": "NEHA",
       "lname": "deore",
       "uname": "neha",
       "email": "neha@gmail.com",
-      "password": "",
+      "password": "Neha@123",
       "id": 1
-    },
-    {
-      "fname": "edc",
-      "lname": "ascd",
-      "uname": "wadw",
-      "email": "abc@gmail.com",
-      "password": "",
-      "id": 2
-    },
-    {
-      "fname": "anush",
-      "lname": "hfh",
-      "uname": "anushh",
-      "email": "anush@gmail.com",
-      "password": "Anush@123",
-      "id": 3
     },
     {
       "fname": "felix",
       "lname": "methew",
-      "uname": "felixm",
+      "uname": "felix",
       "email": "felix@gmail.com",
       "password": "Felix@123",
-      "id": 4
+      "id": 2
     },
     {
-      "fname": "raj",
-      "lname": "kale",
-      "uname": "rajesh",
-      "email": "rajesh@gmail.com",
-      "password": "Rajesh@123",
-      "id": 5
+      "fname": "komal",
+      "lname": "verma",
+      "uname": "komal",
+      "email": "verma@gmail.com",
+      "password": "Komal@123",
+      "id": 3
     }
     
   ]

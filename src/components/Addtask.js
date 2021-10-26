@@ -22,10 +22,13 @@ export class Addtask extends Component {
     addTask = () =>{
         let data = {"task":this.state.task,"priority":this.state.priority,"status":false}
         let todoData = JSON.parse(localStorage.getItem('todolist')) || []
-        todoData.push(data)
+      if(this.state.task!=="" && this.state.priority!==""){ todoData.push(data)
         console.log(todoData)
         localStorage.setItem('todolist',JSON.stringify(todoData))
         window.location.replace('/addtask')
+      }else{
+          alert('please enter task and priority')
+      }
         
     }
  //for deleting task
@@ -61,7 +64,9 @@ export class Addtask extends Component {
                 
                <Container className="container-fliud  mt-4  text-light" id="todo">
                     <h2 className="text-center text-warning">Todo List</h2>
-                    <button  className="btn btn-danger" onClick={this.logOut}>LOG OUT</button>
+                    <button  className="btn btn-danger" onClick={this.logOut}>LOG OUT</button>        
+                               
+                    
                 <div className="mb-3 mx-5 mt-5 w-50">
                 <label className="form-label ">Task</label>
                 <input type="text" className="form-control w-25" name="task" value={this.state.task} onChange={this.handler} />
@@ -96,9 +101,11 @@ export class Addtask extends Component {
                                     <td>
                                         <button onClick={()=>this.completeTask(index)}  className="btn btn-success mx-2">Complete</button>
                                         <button onClick={()=>this.deleteTask(index)} className="btn btn-danger">Delete</button>
+                               
 
                                     </td>
                                 </tr>
+                                         
                             ))}
                         </tbody>
                     </table>
